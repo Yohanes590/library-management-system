@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main-style.css">
+    <link rel="stylesheet" href="login-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Login</title>
+</head>
+<body onload="cheack_connection()">
+    
+    <div id="offline_message" class="offline_message">
+        <div class="text_message">
+            <img src="image/no_wifi.png" alt="" srcset="">
+            <h2>Please Check Your Internet Connection First</h2>
+            <p>No Internet Connection</p>
+            <button onclick="reloadPage()">Refresh Page</button>
+        </div>
+    </div>
+
+    <div class="login_box">
+
+        <div class="items">
+
+            <h1>login here!</h1>
+            <form autocomplete="off" action="/admin-dashboard" method="post">
+            <input type="username-validation" required id="login_username" name="username" placeholder="user name"><br>
+            <input type="password" required id="login_passowrd" name="password" placeholder="Password"><br><br>
+            <a href="/password-reset">Forgotten Password</a>
+            <button onclick="login()">Login<span class="material-symbols-outlined">login</span></button>
+            </form>
+        </div>
+
+    </div>
+<script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.flex_box{
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex_box .message{
+    text-align: center;
+}
+.flex_box .message #span{
+    font-size: 55px;
+}
+
+.flex_box .message a{
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

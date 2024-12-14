@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+:root {
+    --color-primary: #6C9BCF;
+    --color-danger: #FF0060;
+    --color-success: #1B9C85;
+    --color-warning: #F7D060;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+
+input {
+    text-transform: lowercase;
+}
+
+
+body {
+    font-family: 'poppins', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    color: var(--color-dark);
+    user-select: none;
+    background-color: var(--color-background);
+}
+
+a {
+    color: var(--color-dark);
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 0.87rem;
+}
+
+small {
+    font-size: 0.76rem;
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+#danger {
+    color: var(--color-danger);
+}
+
+.loading_animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.466);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    margin: 0px;
+}
+
+#loading {
+    display: none;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    height: 10px;
+    width: 230px;
+    --c: no-repeat linear-gradient(var(--color-primary) 0 0);
+    background: var(--c), var(--c), #cdcaff;
+    background-size: 60% 100%;
+    animation: l16 3s infinite;
+    border-radius: 10px;
+}
+
+.offline_message {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.offline_message .text_message {
+    text-align: center;
+}
+
+.offline_message .text_message button {
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    background: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+    cursor: pointer;
+}
+
+.offline_message .text_message img {
+    width: 70px;
+}
+
+@keyframes l16 {
+    0% {
+        background-position: -150% 0, -150% 0
+    }
+
+    66% {
+        background-position: 250% 0, -150% 0
+    }
+
+    100% {
+        background-position: 250% 0, 250% 0
+    }
+}
+
+
+.container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.container .sideBar .logo {
+    margin-top: 20px;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    background: var(--color-light);
+    border-radius: 10px;
+}
+
+.container .sideBar .logo a {
+    color: var(--color-danger)
+}
+
+.container .sideBar .side_items {
+    margin-top: 50px;
+    width: 230px;
+    height: 70%;
+    position: absolute;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+}
+
+.container .sideBar .side_items .list_item {
+    margin-top: 80px;
+}
+
+.sideBar .side_items .list_item .hover {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: var(--color-info-dark);
+    padding-left: 20px;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.sideBar .side_items .list_item .hover:hover {
+    color: var(--color-primary);
+    background-color: var(--color-light);
+}
+
+
+#text {
+    transition: 0.3s ease-in-out;
+    padding-left: 10px;
+}
+
+.sideBar .side_items .list_item .hover:hover #text {
+    padding-left: 20px;
+}
+
+.sideBar .side_items .list_item .hover.active {
+    color: var(--color-primary);
+    background-color: var(--color-light);
+}
+
+.sideBar .side_items .list_item .hover.active::before {
+    content: '';
+    width: 6px;
+    height: 18px;
+    border-radius: 20px;
+    background-color: var(--color-primary);
+}
+
+.sideBar .side_items .list_item .hover.logout {
+    margin-top: 50px;
+    color: var(--color-danger);
+}
+
+#offline_message {
+    display: none;
+}
+
+.dashboard {
+    margin-left: 250px;
+    margin-top: 50px;
+}
+
+.dashboard .cards {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.dashboard .cards .eachcard {
+    width: 300px;
+    height: 150px;
+    background-color: var(--color-white);
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    animation: 2s fede_anime alternate;
+}
+
+@keyframes fede_anime {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+.dashboard .cards .eachcard .progress {
+    margin-top: 68px;
+    width: 120px;
+}
+
+.dashboard .cards .eachcard .icon {
+    background-color: var(--color-success);
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    height: 80px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.dashboard .cards .eachcard .icon span {
+    font-size: 30px;
+}
+
+.dashboard .cards .eachcard .icon2 {
+    background-color: var(--color-danger);
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    height: 80px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.dashboard .cards .eachcard .icon3 {
+    background-color: var(--color-primary);
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    height: 80px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
+
+
+.dashboard .cards .eachcard .per {
+    position: absolute;
+    margin-left: 80px;
+    color: var(--color-success);
+}
+
+.dashboard .cards .eachcard .progress2 {
+    margin-top: 68px;
+    width: 120px;
+}
+
+.dashboard .cards .eachcard .per2 {
+    position: absolute;
+    margin-left: 105px;
+    color: var(--color-danger);
+}
+
+
+
+.dashboard .cards .eachcard .progress3 {
+    margin-top: 68px;
+    width: 120px;
+}
+
+.dashboard .cards .eachcard .per3 {
+    position: absolute;
+    margin-left: 95px;
+    color: var(--color-primary);
+}
+
+.dashboard .recentBooks {
+    width: 90%;
+    height: 250px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    margin-top: 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 50px;
+}
+
+.dashboard .recentBooks .table table {
+    width: 950px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.dashboard .recentBooks .table table th {
+    background-color: var(--color-primary);
+    height: 40px;
+    color: white;
+}
+
+.dashboard .recentBooks .table table td {
+    border-bottom: 1px solid var(--color-primary);
+    height: 45px;
+}
+
+#active {
+    color: var(--color-success);
+}
+
+#detail {
+    width: 100px;
+    height: 30px;
+    background: var(--color-warning);
+    color: var(--color-dark-variant);
+    border: 1px solid var(--color-warning);
+    cursor: pointer;
+}
+
+#breowd {
+    color: var(--color-warning);
+}
+
+.add_books {
+    margin-left: 300px;
+    margin-top: 100px;
+    color: var(--color-dark);
+}
+
+.add_books .inputSection {
+    margin-top: 10px;
+}
+
+.add_books .inputSection input {
+    width: 650px;
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.add_books .inputSection select {
+    width: 675px;
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+#success {
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: var(--color-success);
+    border: 2px solid var(--color-success);
+    color: var(--color-white);
+}
+
+#delete {
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: var(--color-danger);
+    border: 2px solid var(--color-danger);
+    color: var(--color-white);
+}
+
+
+#add_books {
+    display: none;
+}
+
+
+#show_book_data {
+    display: none;
+}
+
+#dashboard {
+    display: block;
+}
+
+#browed {
+    display: none;
+}
+
+#shared {
+    display: none;
+}
+
+#browed_anl {
+    display: none;
+}
+
+.show_book_data {
+    margin-left: 300px;
+    margin-top: 100px;
+    color: var(--color-dark);
+}
+
+.show_book_data .book_table {
+    margin-top: 30px;
+    height: 400px;
+    overflow: scroll;
+}
+
+.show_book_data .book_table table {
+    width: 100%;
+}
+
+.show_book_data .book_table table th {
+    background-color: var(--color-primary);
+}
+
+.show_book_data .book_table table td {
+    text-align: center;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.browed_book {
+    margin-left: 300px;
+    margin-top: 100px;
+    color: var(--color-dark);
+}
+
+.browed_book .browedInput input {
+    width: 450px;
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.shared_book {
+    margin-left: 300px;
+    margin-top: 100px;
+    color: var(--color-dark);
+}
+
+.shared_book .Std_input {
+    margin-top: 20px;
+}
+
+.shared_book .Std_input input {
+    width: 350px;
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.browed_anl {
+    margin-left: 300px;
+    margin-top: 100px;
+    color: var(--color-dark);
+}
+
+.browed_anl .table_anl {
+    margin-top: 20px;
+}
+
+.browed_anl .table_anl table {
+    width: 100%;
+}
+
+.browed_anl .table_anl table th {
+    background: var(--color-success);
+    color: var(--color-white)
+}
+
+.browed_anl .table_anl table td {
+    border-bottom: 2px solid var(--color-success);
+    text-align: center;
+}
+
+.Data_output {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#Data_output {
+    display: none;
+}
+
+#give_back_date {
+    display: none;
+    justify-content: space-around;
+}
+
+#give_back_date select {
+    width: 150px;
+    height: 30px;
+    padding-left: 20px;
+}
+
+#give_back_date input {
+    width: 150px;
+    height: 30px;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+#give_back_date button {
+    margin-top: 20px;
+}
+
+#delete2 {
+    width: 150px;
+    height: 30px;
+    background-color: var(--color-danger);
+    border: 2px solid var(--color-danger);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.invisible_data input {
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.fotter_part {
+    display: flex;
+    justify-content: center;
+}
+
+.fotter_part .flex_background {
+    position: absolute;
+    bottom: 5px;
+    width: 95%;
+    height: 50px;
+    background: var(--color-primary);
+    border-radius: 10px;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fotter_part .flex_background p {
+    color: white;
+}

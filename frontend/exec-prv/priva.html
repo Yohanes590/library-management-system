@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy And Security</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="prv.css">
+    <link rel="stylesheet" href="../main-style.css">
+</head>
+<body>
+    
+    <div class="navigation_bar">
+        <div class="logo"><h2>Privacy & Security Panel </h2> <span class="material-symbols-outlined">safety_check</span></div>
+        <div class="buttons"><button onclick="window.history.back()"> <span class="material-symbols-outlined">arrow_back_ios</span> Goto Back</button></div>
+    </div>
+
+    <div class="input_box_panel">
+            <div class="input">
+                <form action="/replacing-private-data" method="post" accept="/chanege-security" id="replace_privacy">
+                <h2>Username & Password Changer</h2>
+                <input type="text" name="username" id="username" placeholder="User - Name"><br>
+                <input type="password" name="new-passkey" id="new-passkey" placeholder="New Password"><br>
+                <input type="password" name="password" id="confirm-passkey" placeholder="Confirm Password"><br>
+                <input type="text" name="forgotten" placeholder="Your Fav Food" id="fav-question">
+                <button type="button" id="successed" onclick="submite_privacy()">Save Chanegs <span class="material-symbols-outlined">save</span></button>
+                <button type="reset" id="cleard">Clear <span class="material-symbols-outlined">clear_all</span></button>
+                </form>
+            </div>
+    </div>
+
+    <script src="../app.js"></script>
+
+</body>
+</html>

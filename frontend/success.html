@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Message</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+    <script>
+        Swal.fire({
+  position: "center",
+  icon: "success",
+  title: "Your work has been saved",
+  showConfirmButton: false,
+  timer: 1500
+});
+
+setTimeout(() => {
+    history.back()
+    reloadPage()
+}, 1500);
+    </script>
+</body>
+</html>

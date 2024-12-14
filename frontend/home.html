@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="main-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    
+
+
+    <div id="loading" class="loading_animation">
+        <div class="loader"></div>
+    </div>
+
+<div id="sub_body" class="container">
+
+    <div class="sideBar">
+        <div class="logo"><h2>Library Management <span id="danger">System</span></h2>
+                <div class="button">
+                    <a href="/privacy-security">Security & Privacy</a>
+                </div>
+        </div>
+
+
+        <div class="side_items">
+
+            <div class="list_item">
+                <div class="hover" onclick="dashOpen()"><span class="material-symbols-outlined">dashboard</span> <span id="text">Dashboard</span></div>
+                <div class="hover" onclick="added()"><span class="material-symbols-outlined">add </span> <span id="text">Add Books</span></div>
+                <div class="hover" onclick="show()"><span class="material-symbols-outlined">bar_chart</span> <span id="text">Show Book Data</span></div>
+                <div class="hover" onclick="bro()"><span class="material-symbols-outlined">beenhere</span> <span id="text">borrow Books</span></div>
+                <div class="hover" onclick="shared_book()"><span class="material-symbols-outlined">share</span> <span id="text">Shared Books</span></div>
+                <div class="hover" onclick="browed_chart()"><span class="material-symbols-outlined">bar_chart_4_bars</span> <span id="text">Browed Analytics</span></div>
+                <div class="hover logout" onclick="logout_close()"><span class="material-symbols-outlined">logout</span> <span id="text">Logout</span></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="dashboard" class="dashboard">
+        <h2>Dashboard</h2>
+        <h3>Total - Analytics</h3>
+
+        <div class="cards">
+
+            <div class="eachcard">
+
+                <div class="data1">
+                    <h3>Total Books</h3>
+                    <strong><h2 id="total_books"></h2></strong>
+                </div>
+                <div class="icon"><span class="material-symbols-outlined">book</span></div>
+
+            </div>
+
+
+
+
+            <div class="eachcard">
+
+                <div class="data1">
+                   <h3>Total Borrowed Books</h3>
+                    <strong><h2 id="broowed_books"></h2></strong>
+                </div>
+                <div class="icon2"><span class="material-symbols-outlined">pending</span></div>
+
+            </div>
+
+
+
+
+            <div class="eachcard">
+
+                <div class="data1">
+                   <h3>Recent Books</h3>
+                    <strong><h2 id="recent"></h2></strong>
+                </div>
+                <div class="icon3"><span class="material-symbols-outlined">schedule</span></div>
+
+            </div>
+
+
+
+        </div>
+
+        <center>
+        <div class="recentBooks">
+
+            <div class="table">
+                <table id="table_data_input">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                        <th>Donated Date</th>
+                        <th>Quantity</th>
+                        <th>Book type</th>
+                        <th>Price</th>
+                        <th>Details</th>
+                    </tr>
+
+
+                    
+
+
+
+                </table>
+            </div>
+        
+        </div>
+        </center>
+    </div>
+
+    </div>
+    
+    
+
+
+
+    <div id="add_books" class="add_books">
+
+
+        <h1>Adding Book's <span class="material-symbols-outlined">add</span></h1>
+
+        <div class="inputSection">
+            <form action="/adding-books" method="post" id="adding_book_form">
+            <input type="name" id="book_name_validation" name="book_name" placeholder="Book Name"><br>
+            <input type="name" id="book_grade_validation" name="book_grade" placeholder="Grade"><br>
+            <input type="number" id="book_price_validation" name="price" placeholder="Price" step="any"><br>
+            <input type="number" id="book_quantitiy_validation" name="quantitiy" placeholder="Quantity"><br>
+            <select name="type" >
+                <option>School Book</option>
+                <option>Additional</option>
+            </select><br>
+            <input type="date" id="adding_book_validation" name="date" ><br>
+            <button type="button" id="success" onclick="AddingBookData()">Add Books</button>
+            <button id="delete" type="reset">Clear</button><br><br>
+        </form>
+            <hr>
+
+        </div>
+</div>
+
+<div id="show_book_data" class="show_book_data">
+
+    <form method="post" action="/delet-book" id="deleted">
+        <input type="text" name="id" id="id"  style="display: none;">
+    </form>
+ 
+    <h1>Book Data <span class="material-symbols-outlined">bar_chart</span></h1>
+
+    <div class="book_table">
+        <table id="append_data">
+
+
+            <tr>
+                <th>Book Name</th>
+                <th>Grade</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+
+
+
+        </table>
+    </div>
+
+</div>
+
+
+
+<div id="browed" class="browed_book">
+
+<h1>Borrowed Book</h1>
+
+
+<div class="browedInput">
+    <form action="/brrowed-books" method="post">
+    <input type="name" name="student_name" pattern="^\S+$" placeholder="Student Name">
+    <input type="name" name="student_last_name" pattern="^\S+$" placeholder="Student Last Name"><br>
+    <input type="name" name="student_grade" placeholder="Student Grade">
+    <input type="name" name="student_section" placeholder="Student Section"><br>
+    <input type="number" name="phone_no" placeholder="Phone Number">
+    <input type="text" name="book_status" value="not-give" readonly><br><br>
+    <input type="number" name="give_back_data" value="-" style="display: none;">
+    <hr><br><br>
+    <input type="book_name" name="Book_name" placeholder="Book Name">
+    <input type="book_name" name="Book_grade" placeholder="Book Grade"><br>
+    <input type="book_name" name="quantitiy" placeholder="Quantity">
+    <input type="date" name="date"><br>
+    
+    <button type="submit" id="success">Borrowed</button>
+    <button id="delete" type="reset">Clear</button>
+</form>
+
+</div>
+</div>
+
+<div id="shared" class="shared_book">
+    <h1>Shared Book</h1>
+
+
+
+    <div class="Std_input">
+        <input type="name" id="firstName" placeholder="Student Name">
+        <input type="name" id="secondName" placeholder="Student Last Name">
+        <button id="success" onclick="findData()">Find Student</button>
+
+
+    </div>
+    <br>
+   -- Borrowed Data--
+<br>
+
+<div  class="invisible_data" >
+<form action="/give-back" method="post" id="replacing_form" style="display: none;">
+    <input type="text" id="student_first_name" name="student_name" pattern="^\S+$" placeholder="Student Name">
+    <input type="text" id="student_last_name" name="student_last_name" pattern="^\S+$" placeholder="Student Last Name"><br>
+    <input type="text" id="student_grade" name="student_grade" placeholder="Student Grade">
+    <input type="text" id="student_section" name="student_section" placeholder="Student Section"><br>
+    <input type="number" id="phone_no_id" name="phone_no" placeholder="Phone Number">
+    <input type="text" id="book_status" name="book_status" value="not-give" readonly>
+    <input type="text" id="ided" name="id" readonly>
+    <input type="text" id="dated"  name="date">
+   <br><br>
+    <hr><br><br>
+    <input type="book_name" id="id_book_name" name="Book_name" placeholder="Book Name">
+    <input type="book_name" id="id_book_grade" name="Book_grade" placeholder="Book Grade"><br>
+    <input type="book_name"id="id_quantitiy" name="quantitiy" placeholder="Quantity">
+    <input type="text"id="gived_date"  name="give_back_data" readonly><br><br>
+</form>
+
+</div>
+
+
+<hr>
+
+    <div id="Data_output" class="Data_output">
+
+        
+    </div>
+    <br>
+    <hr>
+    <br>
+        <div id="give_back_date" class="give_back_date">
+
+        </div>
+</div>
+
+
+<div id="browed_anl" class="browed_anl">
+        <h2>Browed Analytics <span class="material-symbols-outlined">bar_chart_4_bars</span></h2>
+
+    <div class="table_anl">
+
+            <table id="appen_analitics_date">
+                <tr>
+                    <th>Student Name</th>
+                    <th>Class</th>
+                    <th>Book Name</th>
+                    <th>Browed Book Date</th>
+                    <th>Give Back Date</th>
+                </tr>
+
+            </table>
+
+    </div>
+
+</div>
+
+
+<div class="fotter_part">
+
+<div class="flex_background">
+    <p>&copy; Copy Right From Mariya Solution 2017.EC</p>
+  </div>
+
+ </div>
+
+   </div>
+
+
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</body>
+</html>
