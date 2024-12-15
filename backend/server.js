@@ -4,7 +4,7 @@ const app = express();
 const all_book_data = require("./models/adding_book");
 const brrowed_books = require("./models/browed-book");
 const { readFileSync } = require("fs");
-const login = readFileSync("../frontend/login.html", "utf-8"); 
+const login = readFileSync("../frontend/index.html", "utf-8"); 
 const dashboard = readFileSync("../frontend/home.html", "utf-8"); 
 const username_password = require("./models/secuerd_model")
 const success_page = readFileSync('../frontend/success.html', "utf-8");
@@ -72,18 +72,6 @@ app.post('/brrowed-books', async (req, res) => {
     }
 });
 
-app.post('/api-test',async(req,res)=>{
-    const j_data = await brrowed_books.find({})
-    const filtred_data = j_data.filter(item => item.book_status == "not-give")
-    const f_name = req.body.student_name
-    const l_name = req.body.student_last_name
-    const cheack = filtred_data.find(item => item.student_name ==f_name && item.student_last_name == l_name)
-    if(cheack){
-    res.json({message:"Already Browed"})
-    }else{
-     res.json({message:"Browed Success"})
-    }
-})
 
 // Book - API
 app.post('/book-data-api', async (req, res) => {
@@ -139,10 +127,6 @@ app.post('/find-student/:name/:lastname', async (req, res) => {
     res.json(find_student);
 });
 
-app.post('/cheack-status',async(req,res)=>{
-    const bor = await brrowed_books.find({})
-    res.json(bor)
-})
 
 // Delete Book
 app.post("/delet-book", async (req, res) => {
@@ -189,8 +173,9 @@ app.all("*", (req, res) => {
     res.end(foro_for);
 });
 
+require("dotenv").config()
 
-mongoose.connect("mongodb+srv://LabSYS:JIJIioIOIOWEQHIOioi1313124127894823u4pohlafpiopio2hlgukaherytuiqugukegiru3to23742o62yu4236oy8ulwjhhwpru3oyrauweik23y89y89e@labsys.qsh5q.mongodb.net/?retryWrites=true&w=majority&appName=LabSys")
+mongoose.connect(process.env.DB_CONNECT)
     .then(() => {
         console.log("Connected DataBase");
     })
@@ -199,7 +184,7 @@ mongoose.connect("mongodb+srv://LabSYS:JIJIioIOIOWEQHIOioi1313124127894823u4pohl
     });
 
 // Start the server
-const port = 3000;
+const port = 4000;
 app.listen(port, () => {
     console.log(`App Start On Port ${port}`);
 });

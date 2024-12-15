@@ -107,7 +107,7 @@ var data_input = ()=>{
 const findData = ()=>{
     const firstName = document.getElementById("firstName").value;
     const secondName = document.getElementById("secondName").value;
-    fetch(`http://localhost:3000/find-student/${firstName.toLowerCase()}/${secondName.toLowerCase()}`,
+    fetch(`/find-student/${firstName.toLowerCase()}/${secondName.toLowerCase()}`,
     {
         method:"post"
     }
@@ -205,7 +205,7 @@ const findData = ()=>{
 
 }
 const dashboard_fetch = ()=>{
-    fetch("http://localhost:3000/book-data-api",
+    fetch("/book-data-api",
         {
             method:"post"
         }
@@ -243,7 +243,7 @@ const dashboard_fetch = ()=>{
        }
     })
 
-    fetch("http://localhost:3000/brrowed-api",{
+    fetch("brrowed-api",{
         method:"post"
     }).then(res => res.json())
     .then(data => {
@@ -281,7 +281,7 @@ const removeItem = (id)=>{
 
 function showing_book_data (){
     
-    fetch("http://localhost:3000/book-data-api" ,{
+    fetch("/book-data-api" ,{
         method:"post"
     }).then(res=>res.json())
     .then(data => {
@@ -345,7 +345,7 @@ function changeing_date(){
 
 
 const analitics_fetch = ()=>{
-    fetch("http://localhost:3000/brrowed-api" ,{
+    fetch("/brrowed-api" ,{
         method:"post"
     }).then(res=>res.json())
     .then(data=>{
