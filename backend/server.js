@@ -15,6 +15,7 @@ const forgote = readFileSync("../frontend/forgot.html","utf-8")
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname,"../")));
 
 app.get("/", (req, res) => {
     res.end(login);  

@@ -115,7 +115,6 @@ const findData = ()=>{
 .then(data => data.json())
 .then(res => {
     if(res.length == 0 ){
-        console.log(res)
      window.alert("user not found")
     }else{
       for(var index_geter in res){
