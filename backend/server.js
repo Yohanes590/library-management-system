@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path")
 const mongoose = require("mongoose");
 const app = express();
 const all_book_data = require("./models/adding_book");
@@ -13,8 +14,7 @@ const foro_for = readFileSync("../frontend/404.html", "utf-8");
 const forgote = readFileSync("../frontend/forgot.html","utf-8")
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("../frontend"));
-app.use(express.static("../"));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 app.get("/", (req, res) => {
     res.end(login);  
@@ -140,7 +140,7 @@ app.post("/delet-book", async (req, res) => {
 
 //privacy Setting
 const privacy_page = readFileSync('../frontend/exec-prv/priva.html','utf-8')
-app.use(express.static("../frontend/exec-prv"))
+app.use(express.static(path.join(__dirname ,"../frontend/exec-prv")))
 app.get('/privacy-security' , (req,res)=>{
     res.end(privacy_page)
 })

@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="main-style.css">
     <link rel="stylesheet" href="forgot-css.css">
     <title>Forgotten Password</title>
+    <link rel="manifest" href="icon/manifest.json">
 </head>
 <body>
     <div class="forgot">
         <h1>Password Reset Section</h1>
-        <input type="text" id="fav_food"placeholder="Insert Your Fav-food"><br>
+        <input type="text" id="input-fav" placeholder="Insert Your Fav-food"><br>
             <button onclick="resetFunction()">Reset</button>
+    </div>
+
+    <div id="passer" class="pass-section">
+
+        <div class="box-part">
+
+            <div class="flex-part">
+                <div onclick="close_window()" class="close"><span class="material-symbols-outlined">close</span></div>
+                <p>User-Name : <span id="username">ane</span> </p><br>
+                <p>Password : <span id="password">aas</span> </p>
+            </div>
+
+        </div>
+
     </div>
 
 <script src="reset-api.js"></script>
