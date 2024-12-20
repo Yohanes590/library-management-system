@@ -290,7 +290,7 @@ function showing_book_data (){
         
                 <td>${data[index_db].book_name}</td>
                 <td>${data[index_db].book_grade}</td>
-                <td>${data[index_db].type} Book</td>
+                <td>${data[index_db].type}</td>
                 <td>${data[index_db].price}</td>
                 <td>${data[index_db].date}</td>
                 <td>${data[index_db].quantitiy}</td>
